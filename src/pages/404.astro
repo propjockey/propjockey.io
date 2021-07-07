@@ -1,0 +1,29 @@
+---
+import "augmented-ui/augmented-ui.min.css"
+import "css-media-vars/css-media-vars.css"
+import Layout from "../layouts/Layout.astro"
+import HomeLinks from "../components/Home.astro"
+---
+
+<style>
+  footer {
+    font-size: 1rem;
+    margin-top: 5rem;
+    padding: 1rem;
+    color: hsl(var(--theme_2));
+    text-align: center;
+    filter: var(--flags-glow) drop-shadow(0 0 1rem hsl(var(--theme_2) / 0.75));
+  }
+  footer a {
+    color: hsl(var(--theme_0));
+  }
+</style>
+
+<Layout content={{ title: "PropJockey.io - the value of properties, orchestrated" }}>
+  <main class="astrolayout">
+    <HomeLinks />
+  </main>
+  <footer>
+    This site was built with <a href="https://astro.build/">Astro 🚀</a>. Highly recommended; Check them out! 💜
+  </footer>
+</Layout>

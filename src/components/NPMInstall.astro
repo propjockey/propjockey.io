@@ -1,0 +1,193 @@
+---
+import "augmented-ui/augmented-ui.min.css"
+import "css-media-vars/css-media-vars.css"
+import HomeLink from "./HomeLink.astro"
+import NPMLink from "./NPMLink.astro"
+import GitHubLink from "./GitHubLink.astro"
+import OtherPackages from "./OtherPackages.astro"
+---
+
+<style>
+  h2 {
+    --smfont: var(--media-lte-sm) 1.75rem;
+    font-size: var(--smfont, 2.5rem);
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.6);
+    margin-bottom: 1.5rem;
+  }
+  article {
+    display: grid;
+    grid-gap: 1rem;
+    padding: 0.25rem;
+    margin-bottom: 3rem;
+    --logo-sm: var(--media-lte-md) 12rem;
+    --logo: var(--logo-sm, 20rem);
+    --gtr-sm: var(--media-lte-sm) var(--logo) auto 17rem auto;
+    grid-template-rows: var(--gtr-sm, 1.5rem calc(var(--logo) - 3rem - 1rem) 5rem);
+    --gtc-sm: var(--media-lte-sm) 1fr;
+    grid-template-columns: var(--gtc-sm, var(--logo) 1fr 3.5rem);
+  }
+  article:last-child {
+    margin-bottom: 0;
+  }
+  .project-links {
+    --gasm: var(--media-lte-sm) 4 / 1;
+    grid-area: var(--gasm, 2 / 3 / 3 / 4);
+    display: flex;
+    --fdsm: var(--media-lte-sm) row;
+    flex-direction: var(--fdsm, column);
+    --smfont: var(--media-lte-sm) 1rem;
+    font-size: var(--smfont, 1.125rem);
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.6);
+    z-index: 1;
+    text-align: center;
+    gap: 0.5rem;
+    justify-content: var(--media-lte-sm) space-around;
+    border-bottom: var(--media-lte-sm) 0.25rem solid hsl(var(--theme_2));
+    margin-bottom: var(--media-lte-sm) 2rem;
+    filter: drop-shadow(var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.33));
+  }
+  .project-logo {
+    --gasm: var(--media-lte-sm) 1 / 1;
+    grid-area: var(--gasm, 1 / 1 / 3 / 2);
+    filter: drop-shadow(var(--flags-glow) 0 0 1rem hsl(var(--theme_1) / 0.33));
+    z-index: 1;
+  }
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    --aug-border: initial;
+    --aug-border-all: 3px;
+    --aug-border-bg: hsl(var(--theme_1));
+    --sm0: var(--media-lte-sm) 0px;
+    --aug-clip-br1: initial;
+    --aug-br1: var(--sm0, 2.5rem);
+    --aug-clip-tr1: initial;
+    --aug-tr1: 2rem;
+    --sm2rem: var(--media-lte-sm) 2rem;
+    --aug-clip-tl1: initial;
+    --aug-tl1: var(--sm2rem, 0px);
+  }
+  h3 {
+    --gasm: var(--media-lte-sm) 2 / 1;
+    grid-area: var(--gasm, 1 / 2 / 2 / 3);
+    color: hsl(var(--theme_0));
+    font-size: 1.75rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.33);
+  }
+  p {
+    color: hsl(var(--theme_2));
+    --smfont: var(--media-lte-md) 1.5rem;
+    font-size: var(--smfont, 2rem);
+    --smtp: var(--media-lte-md) 3rem;
+    padding-top: var(--smtp, 6rem);
+    --psm: var(--media-lte-sm) 0.25rem;
+    padding-left: var(--psm, calc(var(--logo) + 3rem));
+    padding-right: var(--psm, 6rem);
+    --sm0: var(--media-lte-sm) 0px;
+    height: 100%;
+    --aug-border-all: 3px;
+    --aug-border-bg: hsl(var(--theme_2));
+    --aug-tl: var(--sm0, 3rem);
+    --aug-tl-inset1: var(--sm0, calc(var(--logo) - 2rem));
+    --aug-tl-inset2: var(--sm0, calc(var(--logo) - 2rem - 4rem));
+    --aug-br: 2rem;
+    --aug-bl: 1rem;
+    --aug-tr: 2rem;
+    --aug-tr2: var(--sm0, 2rem);
+    --aug-tr-extend2: var(--sm0, 5rem);
+    --aug-scoop-tr1: ;
+    --aug-round-tr1: initial;
+    --aug-tr-inset2: var(--sm0, 2rem);
+    --aug-inlay-all: 0px;
+    --aug-inlay-bg: hsl(var(--theme_mainBgColor) / 0.85);
+    --aug-b: 0px;
+    --aug-b-inset1: 3rem;
+    --aug-b-extend1: 0.25rem;
+    --aug-b-center: calc(var(--logo) + 1rem);
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_2) / 0.5);
+  }
+  .preview {
+    --gasm: var(--media-lte-sm) 3 / 1;
+    grid-area: var(--gasm, 2 / 1 / 4 / 4);
+    filter: var(--flags-glow) drop-shadow(0 0 0.5rem hsl(var(--theme_2) / 0.25));
+  }
+  .preview-augmented-ui {
+    --bgpos-sm: var(--media-lte-md) 50%;
+    background: url(/assets/augmented-ui-preview.png) var(--bgpos-sm, right) center / auto 100% no-repeat;
+  }
+  .aug-logo {
+    background: url(/assets/augmented-ui.png) center center / auto 75% no-repeat, hsl(var(--theme_0) / 0.125);
+  }
+  .preview-css-media-vars {
+    background: url(/assets/breakpoints.png) center bottom / auto 125% no-repeat;
+  }
+  .vars-logo {
+    background: url(/assets/css-media-vars.png) center center / auto 75% no-repeat, hsl(var(--theme_0) / 0.125);
+  }
+  .preview-css-bin-bits {
+    background: url(/assets/css-bin-bits-docs.png) right 40% / 100% auto no-repeat;
+  }
+  .bin-bits-logo {
+    background: url(/assets/css-bin-bits.png) center center / auto 75% no-repeat, hsl(var(--theme_0) / 0.125);
+  }
+</style>
+
+<section>
+  <h2>$ npm install</h2>
+
+  <article>
+    <h3>augmented-ui</h3>
+    <div class="project-logo">
+      <a href="http://augmented-ui.com/" title="Take a closer look at augmented-ui" class="aug-logo" data-augmented-ui></a>
+    </div>
+    <div class="preview">
+      <p data-augmented-ui="both tl-clip-inset b-rect-xy br-clip bl-round tr-2-scoop-y" class="preview-augmented-ui">
+        A deep expansion on what's possible in CSS. High Tech Sci-Fi &amp; Cyberpunk User Interface design made easy. Get augmented and reshape the web.
+      </p>
+    </div>
+    <div class="project-links">
+      <HomeLink href="http://augmented-ui.com/" title="augmented-ui's home page" />
+      <NPMLink href="https://www.npmjs.com/package/augmented-ui" title="augmented-ui on NPM" />
+      <GitHubLink href="https://github.com/propjockey/augmented-ui" title="Leave a star for augmented-ui on GitHub!" />
+    </div>
+  </article>
+
+  <article>
+    <h3>css-media-vars</h3>
+    <div class="project-logo">
+      <a href="https://propjockey.github.io/css-media-vars/" title="Take a closer look at css-media-vars" class="vars-logo" data-augmented-ui></a>
+    </div>
+    <div class="preview">
+      <p data-augmented-ui="both tl-clip-inset b-rect-xy br-clip bl-round tr-2-scoop-y" class="preview-css-media-vars">
+        A brand new way to write responsive CSS, powered by the space toggle. Named breakpoints, DRY selectors, no scripts, no builds, vanilla CSS.
+      </p>
+    </div>
+    <div class="project-links">
+      <HomeLink href="https://propjockey.github.io/css-media-vars/" title="documentation for css-media-vars" />
+      <NPMLink href="https://www.npmjs.com/package/css-media-vars" title="css-media-vars on NPM" />
+      <GitHubLink href="https://github.com/propjockey/css-media-vars" title="Leave a star for css-media-vars on GitHub!" />
+    </div>
+  </article>
+
+  <article>
+    <h3>css-bin-bits</h3>
+    <div class="project-logo">
+      <a href="https://propjockey.github.io/css-bin-bits/" title="Take a closer look at css-bin-bits" class="bin-bits-logo" data-augmented-ui></a>
+    </div>
+    <div class="preview">
+      <p data-augmented-ui="both tl-clip-inset b-rect-xy br-clip bl-round tr-2-scoop-y" class="preview-css-bin-bits">
+        css-bin-bits establishes an API in CSS (no JS) for binary operations on --number-vars. Read/Write individual bits &amp; use logic gates to mix numbers.
+      </p>
+    </div>
+    <div class="project-links">
+      <HomeLink href="https://propjockey.github.io/css-bin-bits/" title="documentation for css-bin-bits" />
+      <NPMLink href="https://www.npmjs.com/package/css-bin-bits" title="css-bin-bits on NPM" />
+      <GitHubLink href="https://github.com/propjockey/css-bin-bits" title="Leave a star for css-bin-bits on GitHub!" />
+    </div>
+  </article>
+
+  <OtherPackages />
+</section>

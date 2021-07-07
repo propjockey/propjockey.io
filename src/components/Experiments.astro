@@ -1,0 +1,169 @@
+---
+import "augmented-ui/augmented-ui.min.css"
+import "css-media-vars/css-media-vars.css"
+import HomeLink from "./HomeLink.astro"
+import NPMLink from "./NPMLink.astro"
+import GitHubLink from "./GitHubLink.astro"
+import CodePen from "./CodePen.astro"
+---
+
+<style>
+  h2 {
+    --smfont: var(--media-lte-sm) 1.75rem;
+    font-size: var(--smfont, 2.5rem);
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.6);
+    margin-bottom: 1.5rem;
+  }
+  h3 {
+    color: hsl(var(--theme_0));
+    font-size: 2.5rem;
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.33);
+  }
+  
+  article {
+    display: grid;
+    --gtcsm: var(--media-lte-sm) 1fr;
+    grid-template-columns: var(--gtcsm, 4fr 6fr);
+    gap: 1rem;
+    align-items: center;
+    padding: 0.25rem;
+    padding-bottom: 1rem;
+    margin-top: 3rem;
+    border-bottom: 0.25rem solid hsl(var(--theme_2) / 0.75);
+  }
+  article.flip {
+    grid-template-columns: var(--gtcsm, 6fr 4fr);
+  }
+  h4 {
+    color: hsl(var(--theme_1));
+    font-size: 1.75rem;
+    filter: var(--flags-glow) drop-shadow(0 0 1rem hsl(var(--theme_1) / 0.5));
+    grid-column: var(--media-gte-md) 2;
+  }
+  img,
+  video {
+    width: 100%;
+    max-width: 40rem;
+    margin: 0 auto;
+    box-shadow: var(--flags-glow) 0 0 2rem hsl(var(--theme_0) / 0.125);
+    grid-row: var(--media-gte-md) 1 / span 3;
+    grid-column: var(--media-gte-md) 1;
+  }
+  p {
+    grid-column: var(--media-gte-md) 2;
+    grid-row: var(--media-gte-md) 2;
+    color: hsl(var(--theme_2));
+    font-size: 1.25rem;
+    text-shadow: var(--flags-glow) 0 0 2rem hsl(var(--theme_2) / 0.75);
+  }
+  a {
+    color: hsl(var(--theme_0));
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.33);
+  }
+  div {
+    grid-column: var(--media-gte-md) 2;
+    grid-row: var(--media-gte-md) 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.5rem;
+    filter: var(--flags-glow) drop-shadow(0 0 1rem hsl(var(--theme_0) / 0.33));
+  }
+  .flip h4 {
+    grid-column: var(--media-gte-md) 1;
+  }
+  .flip img {
+    grid-column: var(--media-gte-md) 2;
+  }
+  .flip video {
+    grid-column: var(--media-gte-md) 2;
+  }
+  .flip p {
+    grid-column: var(--media-gte-md) 1;
+  }
+  .flip div {
+    grid-column: var(--media-gte-md) 1;
+  }
+</style>
+
+<h2>Experiments, Research, &amp; Stress Tests</h2>
+
+<CodePen />
+
+<section>
+  <h3>Research &amp; Stress Tests</h3>
+
+  <article>
+    <h4>3D scene rendered with 100% CSS + HTML</h4>
+    <video autoplay muted loop>
+      <source src="/assets/DOMinion.mp4" type="video/mp4">
+    </video>
+    <p>
+      Pushing the limits of 3D CSS, this stress test is the output of an editor.<br>
+      No svg, no images, no data urls, no webgl, no JS.<br>
+      <a href="https://romaintrystram.myportfolio.com/affinity-designer">Based on artwork by Romain Trystram</a><br>
+      After working with WebGL and falling in love with 3D on the web, I eventually decided to develop a scene editor,
+      "<a href="https://imgur.com/a/OlGQW46">DOMinion</a>", with the hopes of making 3D easy for anyone with only moderate knowledge of CSS.
+      That is, putting 3D Web Design into the hands of web designers instead of keeping it in the realm of specialized programmers.
+      The output is just HTML and CSS, so it's accessible, interactive, and FULL of potential.<br>
+      ...but that potential is, unfortunately, stuck waiting on Chrome's 3D CSS rendering to catch up to Firefox.<br>
+      <br>
+      Chrome is faster 🥇, but gets there by not rendering large parts of it 💩. Depressing.
+    </p>
+    <div>
+      <a href="https://propjockey.github.io/DOMinion-build-demo/index.html">Live Stress Test</a>
+      <GitHubLink href="https://github.com/propjockey/DOMinion-build-demo" title="Leave a star for this 3D stress test on GitHub!" />
+    </div>
+  </article>
+
+  <article class="flip">
+    <h4>Binary Coded Decimal 7 Segment Display Decoder</h4>
+    <img src="/assets/bcd7sdd.gif" alt="an animated gif showing the interactive diagram">
+    <p>
+      Discovering and demonstrating the possibilities of the CSS
+      <a href="https://github.com/propjockey/css-sweeper#css-is-a-programming-language-thanks-to-the-space-toggle-trick">Space Toggle</a>
+      with an interactive SVG diagram of the bcd7sdd circuit. The checkboxes serve as user input and hold state in HTML,
+      CSS reflects that state into Space Toggles (--css-vars), which can be combined in CSS to emulate logic gates. Finally, each step's space toggle
+      state flips the values of other CSS properties, such as stroke and background colors.<br>
+      The code is simple if you're already familiar with logic gates, so it makes a great introduction to a new CSS technique.
+    </p>
+    <div>
+      <a href="https://propjockey.github.io/bcd7sdd/">Interactive Demo</a>
+      <GitHubLink href="https://github.com/propjockey/bcd7sdd" title="Leave a star for the bcd7sdd on GitHub!" />
+    </div>
+  </article>
+
+  <article>
+    <h4>MineSweeper implemented in CSS + HTML</h4>
+    <img src="/assets/css-sweeper.gif" alt="an animated gif showing css-sweeper gameplay">
+    <p>
+      No JavaScript needed!<br>
+      This is a stress test on what's possible with the <a href="https://github.com/propjockey/css-sweeper#css-is-a-programming-language-thanks-to-the-space-toggle-trick">Space Toggle</a>.
+      The 16 fields were randomly generated: The initial state of each field is defined by a space toggle and the NOT of it for each position.<br>
+      The rest of the game, counter, numbers, etc flow from there; So the bombs can be placed anywhere, and in any number without needing to consider anything else.<br>
+      In other words, nothing is hardcoded beyond specifying the initial states of each position on the field (bomb/not-bomb), space toggles allow the rest to unfold with actual programming in CSS.
+    </p>
+    <div>
+      <a href="https://propjockey.github.io/css-sweeper/">Playable Demo</a>
+      <GitHubLink href="https://github.com/propjockey/css-sweeper" title="Leave a star for css-sweeper on GitHub!" />
+    </div>
+  </article>
+
+  <article class="flip">
+    <h4>Augooiigooey - augmented-ui v1 No-Code editor</h4>
+    <img src="/assets/augooiigooey.png" alt="an image of the Augooiigooey no-code editor">
+    <p>
+      A No-Code WYSIWYG Editor to design augmented-ui v1 elements written in React. Built with A11Y accessibility at heart,
+      using aria attributes for screen readers and full keyboard control across the entire app, Augooiigooey makes Sci-Fi
+      and Cyberpunk web design more accessible than ever before.<br>
+      <br>
+      Development of augmented-ui v2 began very shortly after I made this app sooo I never promoted it much.<br>
+      Augooiigooey started as an unofficial UserScript addon to Webflow, but I was having fun making it and decided to create a standalone app.<br>
+      It's still online (I didn't bother renewing the SSL certificate though) as a personal dive into researching
+      and exploring the NoCode trend, but now it only exists to wait for its own v2. ~ 💜
+    </p>
+    <div>
+      <a href="https://gui.augmented-ui.com/">Live App</a>
+    </div>
+  </article>
+</section>

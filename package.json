@@ -1,0 +1,16 @@
+{
+  "name": "@example/portfolio",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "astro dev",
+    "build": "astro build"
+  },
+  "devDependencies": {
+    "astro": "^0.16.1"
+  },
+  "dependencies": {
+    "augmented-ui": "^2.0.0",
+    "css-media-vars": "^1.1.0"
+  }
+}

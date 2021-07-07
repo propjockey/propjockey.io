@@ -1,0 +1,215 @@
+---
+const { enabledSpaceToggle, unitSize } = Astro.props
+---
+
+<style>
+  ul > :global(li:nth-child(1))  { --nth-li: 1;  } ul > :global(li:nth-last-child(1))  { --nth-li-total: (var(--nth-li) - 1 + 1);  }
+  ul > :global(li:nth-child(2))  { --nth-li: 2;  } ul > :global(li:nth-last-child(2))  { --nth-li-total: (var(--nth-li) - 1 + 2);  }
+  ul > :global(li:nth-child(3))  { --nth-li: 3;  } ul > :global(li:nth-last-child(3))  { --nth-li-total: (var(--nth-li) - 1 + 3);  }
+  ul > :global(li:nth-child(4))  { --nth-li: 4;  } ul > :global(li:nth-last-child(4))  { --nth-li-total: (var(--nth-li) - 1 + 4);  }
+  ul > :global(li:nth-child(5))  { --nth-li: 5;  } ul > :global(li:nth-last-child(5))  { --nth-li-total: (var(--nth-li) - 1 + 5);  }
+  ul > :global(li:nth-child(6))  { --nth-li: 6;  } ul > :global(li:nth-last-child(6))  { --nth-li-total: (var(--nth-li) - 1 + 6);  }
+  ul > :global(li:nth-child(7))  { --nth-li: 7;  } ul > :global(li:nth-last-child(7))  { --nth-li-total: (var(--nth-li) - 1 + 7);  }
+  ul > :global(li:nth-child(8))  { --nth-li: 8;  } ul > :global(li:nth-last-child(8))  { --nth-li-total: (var(--nth-li) - 1 + 8);  }
+  ul > :global(li:nth-child(9))  { --nth-li: 9;  } ul > :global(li:nth-last-child(9))  { --nth-li-total: (var(--nth-li) - 1 + 9);  }
+  ul > :global(li:nth-child(10)) { --nth-li: 10; } ul > :global(li:nth-last-child(10)) { --nth-li-total: (var(--nth-li) - 1 + 10); }
+  ul > :global(li:nth-child(11)) { --nth-li: 11; } ul > :global(li:nth-last-child(11)) { --nth-li-total: (var(--nth-li) - 1 + 11); }
+  ul > :global(li:nth-child(12)) { --nth-li: 12; } ul > :global(li:nth-last-child(12)) { --nth-li-total: (var(--nth-li) - 1 + 12); }
+  ul > :global(li:nth-child(13)) { --nth-li: 13; } ul > :global(li:nth-last-child(13)) { --nth-li-total: (var(--nth-li) - 1 + 13); }
+  ul > :global(li:nth-child(14)) { --nth-li: 14; } ul > :global(li:nth-last-child(14)) { --nth-li-total: (var(--nth-li) - 1 + 14); }
+  ul > :global(li:nth-child(15)) { --nth-li: 15; } ul > :global(li:nth-last-child(15)) { --nth-li-total: (var(--nth-li) - 1 + 15); }
+  ul > :global(li:nth-child(16)) { --nth-li: 16; } ul > :global(li:nth-last-child(16)) { --nth-li-total: (var(--nth-li) - 1 + 16); }
+  ul > :global(li:nth-child(17)) { --nth-li: 17; } ul > :global(li:nth-last-child(17)) { --nth-li-total: (var(--nth-li) - 1 + 17); }
+  ul > :global(li:nth-child(18)) { --nth-li: 18; } ul > :global(li:nth-last-child(18)) { --nth-li-total: (var(--nth-li) - 1 + 18); }
+  ul > :global(li:nth-child(19)) { --nth-li: 19; } ul > :global(li:nth-last-child(19)) { --nth-li-total: (var(--nth-li) - 1 + 19); }
+  ul > :global(li:nth-child(20)) { --nth-li: 20; } ul > :global(li:nth-last-child(20)) { --nth-li-total: (var(--nth-li) - 1 + 20); }
+  ul > :global(li:nth-child(21)) { --nth-li: 21; } ul > :global(li:nth-last-child(21)) { --nth-li-total: (var(--nth-li) - 1 + 21); }
+  ul > :global(li:nth-child(22)) { --nth-li: 22; } ul > :global(li:nth-last-child(22)) { --nth-li-total: (var(--nth-li) - 1 + 22); }
+  ul > :global(li:nth-child(23)) { --nth-li: 23; } ul > :global(li:nth-last-child(23)) { --nth-li-total: (var(--nth-li) - 1 + 23); }
+  ul > :global(li:nth-child(24)) { --nth-li: 24; } ul > :global(li:nth-last-child(24)) { --nth-li-total: (var(--nth-li) - 1 + 24); }
+  ul > :global(li:nth-child(25)) { --nth-li: 25; } ul > :global(li:nth-last-child(25)) { --nth-li-total: (var(--nth-li) - 1 + 25); }
+  ul > :global(li:nth-child(26)) { --nth-li: 26; } ul > :global(li:nth-last-child(26)) { --nth-li-total: (var(--nth-li) - 1 + 26); }
+  ul > :global(li:nth-child(27)) { --nth-li: 27; } ul > :global(li:nth-last-child(27)) { --nth-li-total: (var(--nth-li) - 1 + 27); }
+  ul > :global(li:nth-child(28)) { --nth-li: 28; } ul > :global(li:nth-last-child(28)) { --nth-li-total: (var(--nth-li) - 1 + 28); }
+  ul > :global(li:nth-child(29)) { --nth-li: 29; } ul > :global(li:nth-last-child(29)) { --nth-li-total: (var(--nth-li) - 1 + 29); }
+  ul > :global(li:nth-child(30)) { --nth-li: 30; } ul > :global(li:nth-last-child(30)) { --nth-li-total: (var(--nth-li) - 1 + 30); }
+  ul > :global(li:nth-child(31)) { --nth-li: 31; } ul > :global(li:nth-last-child(31)) { --nth-li-total: (var(--nth-li) - 1 + 31); }
+  ul > :global(li:nth-child(32)) { --nth-li: 32; } ul > :global(li:nth-last-child(32)) { --nth-li-total: (var(--nth-li) - 1 + 32); }
+  ul {
+    list-style: var(--fib-enabled) none;
+    display: var(--fib-enabled) block;
+    margin: 1rem auto;
+    --fib-unitsize: 2rem;
+    --fib-offset: 0;
+    height: var(--fib-enabled) calc(21 * (var(--fib-unitsize)));
+    width: var(--fib-enabled) calc(34 * (var(--fib-unitsize)));
+    position: relative;
+    overflow: hidden;
+  }
+  ul > :global(li) {
+    overflow: hidden;
+
+    --fib-maxoffset: var(--nth-li-total) - 9;
+    --fib-spot: (var(--nth-li) - min(var(--fib-offset), var(--fib-maxoffset)));
+    --fib-size: (-1 * max(-1, min(0,  100000 * (var(--fib-spot) - 1)))) * (34) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 1, 1 - var(--fib-spot)))) * (21) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 2, 2 - var(--fib-spot)))) * (13) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 3, 3 - var(--fib-spot)))) * (8) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 4, 4 - var(--fib-spot)))) * (5) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 5, 5 - var(--fib-spot)))) * (3) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 6, 6 - var(--fib-spot)))) * (2) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 7, 7 - var(--fib-spot)))) * (1) +
+             (1 + max(-1, min(0,  100000 * (var(--fib-spot) - 8)))) * (1);
+    height: var(--fib-enabled) calc(var(--fib-unitsize) * (var(--fib-size)));
+    width: var(--fib-enabled) calc(var(--fib-unitsize) * (var(--fib-size)));
+
+    /* --fib-opacity: (1 + max(-1, min(0,  100000 * (var(--fib-spot) - 1)))) * (1 + max(-1, min(0, -100000 * (var(--fib-spot) - 8)))); */
+    --fib-opacity: (-1 * max(-1, min(0,  100000 * (var(--fib-spot) - 1)))) * (0) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 1, 1 - var(--fib-spot)))) * (1) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 2, 2 - var(--fib-spot)))) * (0.8) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 3, 3 - var(--fib-spot)))) * (0.6) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 4, 4 - var(--fib-spot)))) * (0.5) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 5, 5 - var(--fib-spot)))) * (0.4) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 6, 6 - var(--fib-spot)))) * (0.3) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 7, 7 - var(--fib-spot)))) * (0.2) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 8, 8 - var(--fib-spot)))) * (0.1) +
+             (1 + max(-1, min(0,  100000 * (var(--fib-spot) - 9)))) * (0);
+    opacity: var(--fib-enabled) calc(var(--fib-opacity));
+
+    --fib-col-start: (-1 * max(-1, min(0,  100000 * (var(--fib-spot) - 1)))) * (0) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 1, 1 - var(--fib-spot)))) * (0) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 2, 2 - var(--fib-spot)))) * (21) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 3, 3 - var(--fib-spot)))) * (26) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 4, 4 - var(--fib-spot)))) * (21) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 5, 5 - var(--fib-spot)))) * (21) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 6, 6 - var(--fib-spot)))) * (24) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 7, 7 - var(--fib-spot)))) * (25) +
+             (1 + max(-1, min(0,  100000 * (var(--fib-spot) - 8)))) * (24);
+    --fib-row-start: (-1 * max(-1, min(0,  100000 * (var(--fib-spot) - 1)))) * (21) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 1, 1 - var(--fib-spot)))) * (0) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 2, 2 - var(--fib-spot)))) * (0) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 3, 3 - var(--fib-spot)))) * (13) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 4, 4 - var(--fib-spot)))) * (16) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 5, 5 - var(--fib-spot)))) * (13) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 6, 6 - var(--fib-spot)))) * (13) +
+             (1 + max(-1, 10000 * min(var(--fib-spot) - 7, 7 - var(--fib-spot)))) * (15) +
+             (1 + max(-1, min(0,  100000 * (var(--fib-spot) - 8)))) * (15);
+    --fib-__posenabled: var(--fib-enabled) absolute;
+    position: var(--fib-__posenabled, relative);
+    left: var(--fib-enabled) calc((var(--fib-unitsize)) * (var(--fib-col-start)));
+    top: var(--fib-enabled) calc((var(--fib-unitsize)) * (var(--fib-row-start)));
+
+    background: var(--fib-enabled) var(--fib-bg) center center / 80% 80% no-repeat;
+  }
+  li.fib-empty {
+    --fib-__display: var(--fib-enabled) block;
+    display: var(--fib-__display, none);
+    visibility: hidden;
+  }
+  ul :global(a) {
+    --fib-__scaleIfEnabled: var(--fib-enabled)
+      calc((1 + max(-1, min(0,  100000 * (var(--fib-spot) - 1)))) * (1 + max(-1, min(0, -100000 * (var(--fib-spot) - 2)))));
+    opacity: var(--fib-__scaleIfEnabled, 1);
+    /* if this is before the first index shown, shift the a tag back up to where it was previously so shift tabbing doesn't jump */
+    transform: var(--fib-enabled) translateY(
+      calc(
+        (-1 * max(-1, min(0,  100000 * (var(--fib-spot) - 1)))) * var(--fib-unitsize) * -34
+      )
+    );
+  }
+  ul :global(.fib-title) {
+    font-size: calc(var(--fib-font-size-basis) * var(--fib-__scaleIfEnabled, 1));
+  }
+  ul :global(.fib-desc) {
+    --fib-__scaleIfEnabled: var(--fib-enabled) calc(1 + max(-1, 10000 * min(var(--fib-spot) - 1, 1 - var(--fib-spot))));
+    font-size: calc(var(--fib-font-size-basis) / 5 * 4 * var(--fib-__scaleIfEnabled, 1));
+    opacity: var(--fib-__scaleIfEnabled, 1);
+  }
+  div {
+    position: relative;
+  }
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    --fib-__showifenabled: var(--fib-enabled) block;
+    display: var(--fib-__showifenabled, none);
+    z-index: 22;
+  }
+  .fib-left {
+    left: 0;
+  }
+  .fib-right {
+    right: 0;
+  }
+  ul::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: calc(var(--fib-unitsize) * 13);
+    pointer-events: all;
+    --fib-__showifenabled: var(--fib-enabled) block;
+    display: var(--fib-__showifenabled, none);
+    z-index: 20;
+  }
+</style>
+
+<script type="module">
+  // this won't be necessary once :has() is in CSS, but for now, this makes it all tab accessible <3
+  const fib = document.querySelector("#fibonacci")
+  const left = document.querySelector(".fib-left")
+  const right = document.querySelector(".fib-right")
+  const updateDisabledStates = function (x) {
+    if (x <= 0) {
+      left.classList.add("fib-disabled")
+    } else {
+      left.classList.remove("fib-disabled")
+    }
+    if (x >= (fib.children.length - 9)) {
+      right.classList.add("fib-disabled")
+    } else {
+      right.classList.remove("fib-disabled")
+    }
+  }
+  fib.addEventListener("focus", ev => {
+    const li = ev.target.closest("li")
+    const ul = li && li.parentNode
+    if (ul) {
+      const x = Array.prototype.indexOf.call(ul.children, li)
+      ul.style.setProperty("--fib-offset", x)
+      updateDisabledStates(x)
+    }
+  }, true)
+  left.addEventListener("click", () => {
+    const x = parseInt(getComputedStyle(fib).getPropertyValue("--fib-offset")) || 0
+    if (x > 0) {
+      fib.style.setProperty("--fib-offset", x - 1)
+      updateDisabledStates(x - 1)
+    }
+  })
+  right.addEventListener("click", () => {
+    const x = parseInt(getComputedStyle(fib).getPropertyValue("--fib-offset")) || 0
+    if (x < (fib.children.length - 9)) {
+      fib.style.setProperty("--fib-offset", x + 1)
+      updateDisabledStates(x + 1)
+    }
+  })
+</script>
+
+<div style={`--fib-enabled: ${enabledSpaceToggle};`}>
+  <button class="fib-left fib-disabled" aria-hidden="true" tabindex="-1">&lt;</button>
+  <button class="fib-right" aria-hidden="true" tabindex="-1">&gt;</button>
+  <ul id="fibonacci" style={`--fib-unitsize: ${unitSize || "2rem"};`}>
+    <slot />
+    <li aria-hidden="true" class="fib-empty"></li>
+    <li aria-hidden="true" class="fib-empty"></li>
+    <li aria-hidden="true" class="fib-empty"></li>
+    <li aria-hidden="true" class="fib-empty"></li>
+    <li aria-hidden="true" class="fib-empty"></li>
+    <li aria-hidden="true" class="fib-empty"></li>
+    <li aria-hidden="true" class="fib-empty"></li>
+    <li aria-hidden="true" class="fib-empty"></li>
+  </ul>
+</div>

@@ -1,0 +1,18 @@
+---
+import "augmented-ui/augmented-ui.min.css"
+import "css-media-vars/css-media-vars.css"
+import Layout from "../layouts/Layout.astro"
+import WIPShowcase from "../components/WIPShowcase.astro"
+import NPMInstall from "../components/NPMInstall.astro"
+import Footer from "../components/HelpMe.astro"
+---
+
+<Layout content={{ title: "Packages on NPM from PropJockey.io - the value of properties, orchestrated" }}>
+  <main class="astrolayout">
+    <WIPShowcase />
+    <NPMInstall />
+  </main>
+  <footer class="astrolayout">
+    <Footer />
+  </footer>
+</Layout>

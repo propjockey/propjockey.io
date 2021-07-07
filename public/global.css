@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+:root {
+  --theme_0: 0 0% 100%;
+  --theme_1: 270 100% 47%;
+  --theme_2: 314 99% 50%;
+  --theme_3: 270 100% 5%;
+}
+
+@supports (backdrop-filter: sepia(1)) {
+  :root { --supports-backdrop-filter: ; }
+}
+html {
+  --flags-glow: ;
+  --flags-retropx: ;
+  /* --flags__useretropx: var(--flags-glow) var(--flags-retropx); */
+  --flags__useretropx: var(--flags-retropx);
+  --retropx-opacity: 0.42;
+  --retropx-brighten: var(--flags__useretropx) brightness(1.5);
+  --flags-monochromatic: initial;
+  --mono-hue: 275;
+  --flags__usemonochromatic: var(--supports-backdrop-filter) var(--flags-monochromatic);
+  /* end flags and states */
+  filter: var(--retropx-brighten, none);
+  font-size: 1rem;
+  font-family: sans-serif;
+  --bgmonochromatic: var(--flags__usemonochromatic) calc(var(--mono-hue) - 37) 100% 8%;
+  --theme_mainBgColor: var(--bgmonochromatic, var(--theme_3));
+  background: linear-gradient(
+      hsl(var(--theme_mainBgColor) / 0.9), hsl(var(--theme_mainBgColor) / 0.9)
+    ), 
+    url(/assets/propjockey.png) center center / min(min(75vh, 50vw), 750px) auto no-repeat fixed,
+    hsl(var(--theme_mainBgColor));
+  color: hsl(var(--theme_0));
+  --sm-main-width: var(--media-lte-sm) 100%;
+  --main-width: var(--sm-main-width, min(90%, 75em));
+}
+body::before {
+  --monochromatic: var(--flags__usemonochromatic) "";
+  content: var(--monochromatic, none);
+  backdrop-filter: sepia(1) saturate(8) hue-rotate(calc((var(--mono-hue) - 37) * 1deg));
+  pointer-events: none;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 400;
+}
+body::after {
+  --pxmasksize: 8px;
+  --pxmaskimg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAABi0lEQVRIx+3UTW9SQRSA4WcucAENDbWKrRuSGhcmLvr/f4UbY+KCqIlG8IO2WL4uzHXB5UIjlLhywyxmMZk5c85535wgyoz09bz13hd3ml547cpL51pSAeTI5SAIrM4TBBWpphOnzjx15okTTalK+TgXLcxNTUzNZKIoJ4iWpm709Xw0MNHwTNelc6caKoJYPJ+Zi4JUXaomEYIolxm7MdB3ba6mraOj7VFRwFJmYmRkLFPVdKK1yjGI5YXfbo0tVDW11hcoPrg2MDA0k2rreL76IIh/pZiobVKkKPGbnk/6Juo6ui5daGuuApCLouWqMSoSlaLBuYU73332zgdfjTVceOWNro7HCQWYREWqrq6hpiopYJEXJd4a+umHX4ZGJjJL+TqAkvV6373WQcuVbHFeykxNzcwt1pwPebKrifc4l03c48k2xp2cS4x7PNmItIfzlkg7PdmovIfzDpXveRLEhzmrPexJcojzIU+SQ5wPefIv82CnJ8d5cJwHx3nwH+ZBVaquoVE2OPAH4PLAAI/m8L8AAAAASUVORK5CYII=);
+  --useretropx: var(--flags__useretropx) "";
+  content: var(--useretropx, none);
+  pointer-events: none;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: var(--pxmaskimg) 0 0 / var(--pxmasksize) var(--pxmasksize);
+  opacity: var(--retropx-opacity);
+  backdrop-filter: contrast(1.5) brightness(1.5);
+  z-index: 200;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}

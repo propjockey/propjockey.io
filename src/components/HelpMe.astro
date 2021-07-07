@@ -1,0 +1,89 @@
+---
+import "augmented-ui/augmented-ui.min.css"
+import "css-media-vars/css-media-vars.css"
+---
+
+<style>
+  :global(footer.astrolayout) {
+    margin-top: 10rem;
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--theme_1) / 0.25),
+      hsl(var(--theme_2) / 0.25) 250%
+    ) center center / 100% 100% no-repeat;
+  }
+  div {
+    padding: 0.25rem;
+    width: var(--main-width);
+    margin: 0 auto;
+    display: grid;
+    --gtcsm: var(--media-lte-sm) 1fr;
+    grid-template-columns: var(--gtcsm, 1fr 2fr 1fr);
+    align-items: center;
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--theme_1)),
+      hsl(var(--theme_2)) 250%
+    ) center center / 100% 100% no-repeat;
+  }
+  p {
+    grid-column: var(--media-gte-md) 2;
+    grid-row: 1;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  .paypal {
+    grid-column: 1;
+    grid-row: var(--media-lte-sm) 2;
+  }
+  .btc {
+    grid-row: var(--media-lte-sm) 3;
+  }
+  .paypal,
+  .btc {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .qr-code-img {
+    width: 10rem;
+    height: auto;
+  }
+  h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  form,
+  span {
+    display: block;
+    height: 3rem;
+    margin-top: 1rem;
+    font-size: 0.87rem;
+  }
+</style>
+
+<div>
+  <p>
+    If you can help support my ideas,<br>
+    I sincerely appreciate anything given.<br>
+    As of July 2021, I’ve almost made $100!<br>
+    Thank you.
+  </p>
+  <div class="paypal">
+    <h4>PayPal</h4>
+    <img class="qr-code-img" src="/assets/paypalqr.png" alt="paypal donation QR code">
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick" />
+      <input type="hidden" name="hosted_button_id" value="9Z925L3SJJ8BS" />
+      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+      <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+    </form>
+  </div>
+  <div class="btc">
+    <h4>Bitcoin</h4>
+    <img class="qr-code-img" src="/assets/btc.png" alt="bitcoin donation address">
+    <span class="crypto-address">3BbiHYTrxk9KCwCoekQu746oDfHRDzfyHw</span>
+  </div>
+</div>

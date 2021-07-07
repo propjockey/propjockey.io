@@ -1,0 +1,218 @@
+---
+import "augmented-ui/augmented-ui.min.css"
+import "css-media-vars/css-media-vars.css"
+---
+
+<style>
+  .control-panel > input:first-of-type {
+    display: none;
+  }
+  .control-panel > input:not(:checked) ~ * {
+    display: none;
+  }
+
+  label[for="show-controls"] {
+    position: absolute;
+    right: 1rem;
+    --topsm: var(--media-lte-sm) 7.5rem;
+    top: var(--topsm, 5rem);
+    cursor: pointer;
+    opacity: 0.33;
+    display: none;
+  }
+  :global(html.js-enabled label[for="show-controls"]) {
+    display: initial;
+  }
+  svg {
+    margin: 0.25rem;
+    width: 2rem;
+  }
+  label[for="show-controls"]:hover,
+  label[for="show-controls"]:active,
+  label[for="show-controls"]:focus {
+    opacity: 1;
+    background: hsl(var(--theme_2) / 0.25);
+  }
+
+  .controls {
+    border: 0.125rem solid hsl(var(--theme_2));
+    width: calc(0.9 * var(--main-width));
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 1rem;
+    font-size: 1.125rem;
+    border-radius: 0.5rem;
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.5);
+  }
+  .controls * {
+    vertical-align: middle;
+  }
+  .controls label {
+    display: block;
+    margin: 0.5rem 0px;
+    cursor: pointer;
+  }
+  .controls input + label {
+    display: inline-block;
+  }
+  fieldset {
+    padding: 1rem;
+  }
+  legend {
+    padding: 0.5rem;
+  }
+  input {
+    margin: 0.25rem;
+    cursor: pointer;
+  }
+  [type="range"] {
+    cursor: ew-resize;
+  }
+  [name="mono-hue"] {
+    -webkit-appearance: none;
+    background: linear-gradient(
+      to right,
+      hsl(0 100% 50%),
+      hsl(30 100% 50%),
+      hsl(60 100% 50%),
+      hsl(90 100% 50%),
+      hsl(120 100% 50%),
+      hsl(150 100% 50%),
+      hsl(180 100% 50%),
+      hsl(210 100% 50%),
+      hsl(240 100% 50%),
+      hsl(270 100% 50%),
+      hsl(300 100% 50%),
+      hsl(330 100% 50%),
+      hsl(360 100% 50%)
+    ) center center / 100% 0.25rem no-repeat;
+  }
+  [name="mono-hue"]:hover,
+  [name="mono-hue"]:active,
+  [name="mono-hue"]:focus {
+    position: relative;
+    z-index: 9999;
+  }
+  [name="mono-hue"]::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: hsl(var(--mono-hue) 100% 50%);
+  }
+  [name="mono-hue"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: hsl(var(--mono-hue) 100% 50%);
+  }
+  .supported {
+    --ds: var(--supports-backdrop-filter) none;
+    display: var(--ds, block);
+    margin-bottom: 1rem;
+  }
+  .bdf > :not(.supported) {
+    --f: var(--supports-backdrop-filter) none;
+    --pe: var(--supports-backdrop-filter) all;
+    filter: var(--f, opacity(0.33));
+    pointer-events: var(--pe, none);
+  }
+  fieldset > input:first-of-type:not(:checked) + label ~ * {
+    opacity: 0.33;
+    pointer-events: none;
+  }
+  button {
+    margin: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background: hsl(var(--theme_2) / 0.5);
+    color: hsl(var(--theme_0));
+    border: none;
+    cursor: pointer;
+  }
+</style>
+
+<section class="control-panel">
+  <label for="show-controls" tabindex="0" title="Toggle Design Control Panel" onkeypress="this.nextSibling.checked = !this.nextSibling.checked; return false;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path fill="#ffffff" d="M12.53,25a12.5,12.5,0,0,1,0-25A13.17,13.17,0,0,1,22.84,4.89c2.76,3.56,2.46,6.36,1.26,7.79a2.76,2.76,0,0,1-3.45.78h0c-1.65-.87-3-.37-3.56.58s-.16,2.57,2,3.76A2.81,2.81,0,0,1,20.29,21C19.79,23,17.49,25,12.53,25Zm0-24a11.5,11.5,0,0,0,0,23c4.39,0,6.39-1.66,6.8-3.21a1.81,1.81,0,0,0-.78-2.12c-2.69-1.52-3.1-3.71-2.34-5.11s2.68-2.16,4.9-1h0A1.79,1.79,0,0,0,23.33,12C24.24,11,24.45,8.59,22,5.5A12.32,12.32,0,0,0,12.53,1Zm-1,21A2.5,2.5,0,1,1,14,19.5,2.5,2.5,0,0,1,11.5,22Zm0-4A1.5,1.5,0,1,0,13,19.5,1.5,1.5,0,0,0,11.5,18Zm-5-1A2.5,2.5,0,1,1,9,14.5,2.5,2.5,0,0,1,6.5,17Zm0-4A1.5,1.5,0,1,0,8,14.5,1.5,1.5,0,0,0,6.5,13Zm2-3A2.5,2.5,0,1,1,11,7.5,2.5,2.5,0,0,1,8.5,10Zm0-4A1.5,1.5,0,1,0,10,7.5,1.5,1.5,0,0,0,8.5,6Zm7,3A2.5,2.5,0,1,1,18,6.5,2.5,2.5,0,0,1,15.5,9Zm0-4A1.5,1.5,0,1,0,17,6.5,1.5,1.5,0,0,0,15.5,5Z"/></svg>
+  </label>
+  <input id="show-controls" type="checkbox">
+  <div class="controls" data-dev-note="this is just for fun, enjoy ~ <3">
+    <label><input type="checkbox" checked onclick="designFlag(this)" name="glow"> Use Glow</label>
+    <fieldset>
+      <legend>Retro Pixels</legend>
+      <input type="checkbox" checked onclick="designFlag(this)" name="retropx" id="retropx">&nbsp;
+      <label for="retropx">Use Retro Pixelated Design</label><br>
+      <label><input type="range" min="0.25" max="0.65" step="0.01" oninput="designSetting(this)" name="retropx-opacity" value="0.42"> Pixel Occlusion</label>
+    </fieldset>
+    <fieldset class="bdf">
+      <legend>Monochromatic</legend>
+      <span class="supported">Your browser does not support backdrop-filter yet</span>
+      <input type="checkbox" onclick="designFlag(this)" name="monochromatic" id="monochromatic">&nbsp;
+      <label for="monochromatic">Use Monochromatic Design</label><br>
+      <label><input type="range" min="0" max="360" step="1" oninput="designSetting(this)" name="mono-hue" value="275"> Monochromatic Hue</label>
+    </fieldset>
+    <button onclick="resetAllDesignSettings()">Reset All Design Settings</button>
+  </div>
+  <script>
+    document.documentElement.classList.add("js-enabled")
+    const currentDesignSettings = {
+      "--flags-glow": " ",
+      "--flags-retropx": " ",
+      "--retropx-opacity": "0.42",
+      "--flags-monochromatic": "initial",
+      "--mono-hue": "275"
+    }
+    const resetAllDesignSettings = () => {
+      Object.assign(currentDesignSettings, {
+        "--flags-glow": " ",
+        "--flags-retropx": " ",
+        "--retropx-opacity": "0.42",
+        "--flags-monochromatic": "initial",
+        "--mono-hue": "275"
+      })
+      document.cookie = "design_settings=false"
+      applyDesignCookieInfo()
+    }
+    const designSettingsStyles = () => JSON.stringify(currentDesignSettings).replace(/["{}]/g, "").replace(/,/g, ";")
+    const setDesignValue = (p, v) => {
+      v = (v + "").substr(0, 10)
+      if (typeof currentDesignSettings[p] !== "undefined") {
+        if (v === " " || v === "initial") {
+          currentDesignSettings[p] = v
+        } else if (parseFloat(v) + 1) {
+          currentDesignSettings[p] = parseFloat(v)
+        }
+      }
+    }
+    const applyDesignCookieInfo = () => {
+      const designSettings = document.cookie.replace(/(?:.*design_settings=([^;]+);?.*)|.*/, "$1")
+      if (designSettings) {
+        designSettings.replace(/(--[^:]+):([^,]+)/g, (_, p, v) => setDesignValue(p, v))
+        document.documentElement.setAttribute("style", designSettingsStyles())
+        document.querySelector('input[name="glow"]').checked = currentDesignSettings["--flags-glow"] === " "
+        document.querySelector('input[name="retropx"]').checked = currentDesignSettings["--flags-retropx"] === " "
+        document.querySelector('input[name="monochromatic"]').checked = currentDesignSettings["--flags-monochromatic"] === " "
+        document.querySelector('input[name="retropx-opacity"]').value = currentDesignSettings["--retropx-opacity"]
+        document.querySelector('input[name="mono-hue"]').value = currentDesignSettings["--mono-hue"]
+      }
+    }
+    applyDesignCookieInfo()
+    const designFlag = el => {
+      const varname = `--flags-${el.name}`
+      const value = el.checked ? " " : "initial"
+      setDesignValue(varname, value)
+      document.documentElement.setAttribute("style", designSettingsStyles())
+      document.cookie = `design_settings=${designSettingsStyles().replace(/;/g, ",")}`
+    }
+    const designSetting = el => {
+      const varname = `--${el.name}`
+      const value = Math.max(el.min, Math.min(el.max, parseFloat(el.value) || 0))
+      el.value = value
+      setDesignValue(varname, value)
+      document.documentElement.setAttribute("style", designSettingsStyles())
+      document.cookie = `design_settings=${designSettingsStyles().replace(/;/g, ",")}`
+    }
+  </script>
+</section>

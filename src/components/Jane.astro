@@ -1,0 +1,128 @@
+---
+import "augmented-ui/augmented-ui.min.css"
+import "css-media-vars/css-media-vars.css"
+---
+
+<style>
+  section {
+    padding: 0.25rem;
+  }
+  .img-frame {
+    position: relative;
+    top: var(--media-gte-md) -3rem;
+    float: var(--media-gte-md) right;
+    width: min(90vw, 22rem);
+    --aug-tr: 4rem;
+    --aug-bl: 4rem;
+    --aug-br: 0.75rem;
+    --aug-border-all: 0.125rem;
+    --aug-border-bg: hsl(var(--theme_2));
+    --marsm: var(--media-lte-sm) auto;
+    margin-left: var(--marsm, 2rem);
+    margin-right: var(--marsm);
+    background: linear-gradient(to bottom left, hsl(var(--theme_2)), hsl(var(--theme_1)));
+  }
+  img {
+    width: 100%;
+    opacity: 0.9;
+  }
+  h2 {
+    color: hsl(var(--theme_1));
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_1) / 0.33);
+    font-size: 2rem;
+  }
+  article {
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+  }
+  article:last-child {
+    margin-bottom: 0px;
+  }
+  p {
+    font-size: 1.25rem;
+    line-height: 1.75;
+    color: hsl(var(--theme_0));
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.25);
+    margin-top: 1rem;
+  }
+  span {
+    color: hsl(var(--theme_2) / 0.75);
+  }
+  aside {
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+  aside img {
+    width: 90%;
+    max-width: 50rem;
+    display: block;
+    margin: 1rem auto;
+    opacity: 1;
+    filter: brightness(0.57) contrast(1.5);
+  }
+  a {
+    font-weight: bold;
+    color: hsl(var(--theme_2));
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_2) / 0.25);
+    text-decoration: underline;
+  }
+</style>
+
+<section>
+  <p>Hello World 👽</p>
+  <article>
+    <h2>I'm Jane.</h2>
+    <div class="img-frame" data-augmented-ui="border tr-clip bl-clip br-round"><img src="/assets/me.png" alt="a photo of Jane"></div>
+    <p>I make things that help people make things.</p>
+    <p>
+      I've held many web-related job titles from "Developer &amp; Designer" to "Senior Software Engineer", but at the end of the day
+      it's always included fullstack engineering with a bit of styling.<br>
+      The backend is usually something layered on Node and an ORM, but it's been a wide range from PHP and MySQL, to ColdFusion and TSQL, to FeathersJS and MongoDB.
+    </p>
+    <p>I've given talks on security, character encoding, and mixing WebGL with a web component framework.</p>
+    <p>I've taught people Regular Expressions and written more parsers than I can remember.</p>
+    <p>At the end of the day though, what I enjoy most is UX Engineering.</p>
+  </article>
+  
+  <article>
+    <h2>Whys and hows.</h2>
+    <p>
+      My first dive into programming was learning how to hack Nintendo 64 games.<br>
+      Step 1 of that was learning hexadecimal and binary.
+      Eventually game hacking evolved to writing PowerPC Assembly scripts for the relatively advanced work.<br>
+      From there, I wound up creating the number one site for Nintendo Wii game hackers to share their work. I've since taken it offline, but it was a trip.
+    </p>
+    <p>
+      Three important characteristics grew from that background though:<br>
+      <span>1.</span> I started in the binary &amp; assembly and worked my way up; I default to thinking about programming and efficiency at the lowest level.<br>
+      <br>
+      <span>2.</span> I don't interact with anything without a background thought constantly churning up ideas on how to improve it or make it more fun;
+      I have specific UserScripts for almost every site I visit regularly, and even one that runs on every single site.<br>
+      <br>
+      <span>3.</span> When I think about a code base or language spec, I automatically pick up on paths to exploit it.<br>
+      Not maliciously, but just as a well-traveled map-like train-of-thought from continually keeping track &amp; jumping through
+      literal pointers in RAM to reliably hit a target for a game hack.<br>
+      If I put effort into it, thinking about exploiting something deliberately,
+      I wind up discovering something like the CSS Space Toggle and sharing it with everyone I can reach.
+    </p>
+  </article>
+
+  <article>
+    <h2>Contact Me</h2>
+    <p>
+      My twitter DMs are open but they don't ping me if I'm not following, so it may be a few days until I notice.<br>
+      <a href="http://jane.propjockey.io/">~ My Twitter ~</a>
+    </p>
+    <p>
+      I'm also on Discord if you want to contact me more urgently: <span>Jane#0420</span>
+    </p>
+    <br>
+    <aside>
+      ...istg, I didn't choose 420, it chose me:<br>
+      <img src="/assets/welp.png" alt="screenshot of a dev console with consecutive error responses followed by a success response">
+      I wanted to change my Discord name to "Jane" and every # tag I tried was taken,
+      they don't have a way to "just take any # with my name" (unless you stop paying?!?!)
+      so I wrote a script to try, wait, increment, loop and it succeeded... on 420. 🤦‍♀️
+    </aside>
+  </article>
+</section>

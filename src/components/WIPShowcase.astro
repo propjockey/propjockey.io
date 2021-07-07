@@ -1,0 +1,116 @@
+---
+import "augmented-ui/augmented-ui.min.css"
+import "css-media-vars/css-media-vars.css"
+---
+
+<style>
+  .showcase {
+    display: grid;
+    --gta-sm: var(--media-lte-sm) "section-title" "project-logo" "project-info" "previews";
+    --gta: "section-title section-title"
+           "project-logo previews"
+           "project-info previews";
+    grid-template-areas: var(--gta-sm, var(--gta));
+    --logo-size-sm: var(--media-lte-md) 15rem;
+    --logo-size: var(--logo-size-sm, 20rem);
+    --grid-cols-sm: var(--media-lte-sm) 1fr;
+    grid-template-columns: var(--grid-cols-sm, var(--logo-size) 1fr);
+    --gird-rows-sm: var(--media-lte-sm) auto var(--logo-size) auto 1fr;
+    grid-template-rows: var(--gird-rows-sm, 2rem var(--logo-size) 1fr);
+    grid-gap: 1rem;
+    padding: 0.25rem;
+  }
+  h2 {
+    grid-area: section-title;
+    --smfont: var(--media-lte-sm) 1.125rem;
+    font-size: var(--smfont, 1.5rem);
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.6);
+  }
+  .project-logo {
+    grid-area: project-logo;
+    border: 3px solid hsl(var(--theme_1));
+    background: url(/assets/foiled.png) center center / auto 100% no-repeat, hsl(var(--theme_mainBgColor));
+    box-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_1) / 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  h3 {
+    color: hsl(var(--theme_0));
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.6);
+    opacity: 0;
+  }
+  p {
+    grid-area: project-info;
+    color: hsl(var(--theme_2));
+    font-size: 1.125rem;
+  }
+  .previews {
+    grid-area: previews;
+    display: grid;
+    --smgrid: var(--media-lte-sm) 1fr;
+    --mdgrid: var(--media-md) 1fr 1fr;
+    grid-template-columns: var(--smgrid, var(--mdgrid, 1fr 1fr 1fr));
+    grid-gap: 1rem;
+    filter: var(--flags-glow) drop-shadow(0 0 0.5rem hsl(var(--theme_2) / 0.25));
+    justify-items: center;
+  }
+  .previews > * {
+    height: 100%;
+    min-height: 25rem;
+    width: min(100%, 275px);
+    overflow: hidden;
+    position: relative;
+    border: 0.25rem solid hsl(var(--theme_2));
+  }
+  .glados video {
+    position: absolute;
+    height: 120%;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .dxl video {
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: -60%;
+    transform: translate(25%, -50%);
+  }
+  .dxr {
+    display: var(--media-lte-md) none;
+  }
+  .dxr img {
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
+
+<section class="showcase">
+  <h2>FOILED (W.I.P.) - an upcoming release</h2>
+  <a href="http://jane.propjockey.io/" title="follow Jane on twitter for updates on FOILED!" class="project-logo">
+    <h3>FOILED</h3>
+  </a>
+  <p>FOILED is a CSS utility that provides classes and --properties for the creation of animatable, fake-3D Trading Cards</p>
+  <div class="previews">
+    <div class="glados" aria-label="video loop of an example FOILED card made by a fan of the Portal video game series">
+      <video autoplay muted loop>
+        <source src="/assets/glados.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="dxl" aria-label="video loop of an example FOILED card made by a fan of the Deus Ex video game series">
+      <video autoplay muted loop>
+        <source src="/assets/deusex.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="dxr">
+      <img src="/assets/deusex.png" alt="Back side of an example FOILED card made by a fan of the Deus Ex video game series">
+    </div>
+  </div>
+</section>

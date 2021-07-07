@@ -1,0 +1,121 @@
+---
+import "augmented-ui/augmented-ui.min.css"
+import "css-media-vars/css-media-vars.css"
+import ControlPanel from "../components/ControlPanel.astro"
+import WIPShowcase from "../components/WIPShowcase.astro"
+import NPMInstall from "../components/NPMInstall.astro"
+
+const { content } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{content.title}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7300e6">
+    <meta name="msapplication-TileColor" content="#7300e6">
+    <meta name="theme-color" content="#7300e6">
+    <link rel="stylesheet" href="/global.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src99="https://www.googletagmanager.com/gtag/js?id=UA-146833088-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-146833088-2');
+    </script>
+    <style>
+      header {
+        width: var(--main-width);
+        margin: 0 auto;
+        height: 5rem;
+        display: flex;
+        margin-bottom: var(--media-lte-sm) 5rem;
+      }
+      header .logo {
+        display: inline-block;
+        height: 90%;
+        margin: 0.25rem;
+        width: auto;
+        --glow: var(--flags-glow) drop-shadow(0 0 1rem hsl(var(--theme_1) / 0.5));
+        filter: var(--glow, none);
+      }
+      header h1 {
+        display: inline-flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: var(--media-lte-sm) center;
+      }
+      header h1 strong {
+        display: block;
+        color: hsl(var(--theme_1));
+        font-weight: bold;
+        --sm-font: var(--media-lte-sm) 2rem;
+        font-size: var(--sm-font, 3rem);
+        --glow: var(--flags-glow) 0 0 1rem hsl(var(--theme_1) / 0.95);
+        text-shadow: var(--glow, none);
+      }
+      header h1 span {
+        display: block;
+        color: hsl(var(--theme_2));
+        font-weight: bold;
+        --sm-font: var(--media-lte-sm) 0.8rem;
+        font-size: var(--sm-font, 1.15rem);
+        --glow: var(--flags-glow) 0 0 1rem hsl(var(--theme_2) / 0.95);
+        text-shadow: var(--glow, none);
+      }
+
+      nav {
+        white-space: nowrap;
+        position: var(--media-lte-sm) absolute;
+        top: var(--media-lte-sm) 6rem;
+        align-self: center;
+        margin-left: auto;
+        margin-right: 0.5rem;
+      }
+
+      a {
+        margin-left: 1rem;
+        display: inline-block;
+        color: hsl(var(--theme_0));
+        font-weight: bold;
+        --sm-font: var(--media-lte-sm) 0.9rem;
+        font-size: var(--sm-font, 1.25rem);
+        --glow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.75);
+        text-shadow: var(--glow, none);
+      }
+
+      /* https://github.com/snowpackjs/astro/issues/605 */
+      :global(main.astrolayout) {
+        width: var(--main-width);
+        margin: 3rem auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="/assets/propjockey.png" alt="PropJockey logo">
+      <h1>
+        <strong>PropJockey.io</strong>
+        <span>the value of properties, orchestrated</span>
+      </h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/experiments">Experiments</a>
+        <a href="/packages">Packages</a>
+        <a href="/about">About</a>
+      </nav>
+    </header>
+    <ControlPanel />
+    <slot />
+  </body>
+</html>

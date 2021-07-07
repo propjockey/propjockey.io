@@ -1,0 +1,116 @@
+---
+import "augmented-ui/augmented-ui.min.css"
+import "css-media-vars/css-media-vars.css"
+import NPMLink from "./NPMLink.astro"
+import GitHubLink from "./GitHubLink.astro"
+---
+
+<style>
+  article {
+    display: grid;
+    --gcsm: var(--media-lte-sm) 1fr;
+    grid-template-columns: var(--gcsm, 1fr 1fr);
+    gap: 2rem;
+    padding: 0.25rem;
+  }
+  h3 {
+    --gcsm: var(--media-lte-sm) 1;
+    grid-column: var(--gcsm, span 2);
+    color: hsl(var(--theme_0));
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.33);
+  }
+  div {
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+    --gtasm: var(--media-lte-sm) "details details" "npm github";
+    --gtcsm: var(--media-lte-sm) 1fr 1fr;
+    grid-template-areas: var(--gtasm, "logo logo details" "nmp github details");
+    grid-template-columns: var(--gtcsm, 3rem 3rem 1fr);
+    padding-bottom: 1rem;
+    border-bottom: 0.25rem solid hsl(var(--theme_2) / 0.5);
+  }
+  div.flip {
+    grid-template-areas: var(--gtasm, "details logo logo" "details nmp github");
+    grid-template-columns: var(--gtcsm, 1fr 3rem 3rem);
+  }
+  .wide-item {
+    --gcsm: var(--media-lte-sm) 1;
+    grid-column: var(--gcsm, span 2);
+  }
+  .item-logo {
+    display: var(--media-lte-sm) none;
+    grid-area: logo;
+    --aug-all-width: 5rem;
+    --aug-border-all: 0.25rem;
+    --aug-border-bg: hsl(var(--theme_2));
+  }
+  p {
+    grid-area: details;
+    justify-self: left;
+    font-size: 1.1rem;
+    color: hsl(var(--theme_0));
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.33);
+  }
+  dfn {
+    display: block;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: bold;
+    color: hsl(var(--theme_1));
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_1) / 0.33);
+  }
+</style>
+
+<article>
+  <h3>Some of the many more free &amp; open source packages from PropJockey</h3>
+  <div class="wide-item">
+    <span class="item-logo" aria-hidden="true" data-augmented-ui="all-hexangle-right border"></span>
+    <p>
+      <dfn>PropJockey</dfn>
+      An animation library focused on reusable, object-agnostic animations, perfect for game dev and ripe for tooling.<br>
+      Extremely fast by leaning heavily on WASM for nearly all calculations. PLUS O(1) Cubic and Quadratic Bezier easing.<br>
+      Timing-function-agnostic as well, so you can run "animations" on data in Node or skip to a specific frame for SSR, etc.<br>
+      BSD 2-Clause License so you don't have to fear the cost of trying to become successful with predatory purchase plans.<br>
+      <br>
+      Unfinished. Unfortunately.
+    </p>
+    <NPMLink href="https://www.npmjs.com/package/propjockey" title="See PropJockey on NPM" />
+    <GitHubLink href="https://github.com/propjockey/propjockey" title="Leave a star for PropJockey on GitHub!" />
+  </div>
+
+  <div class="wide-item flip">
+    <span class="item-logo" aria-hidden="true" data-augmented-ui="all-hexangle-left border"></span>
+    <p>
+      <dfn>AnalogArray</dfn>
+      An array that accepts non-integer floats for indexes on read that will return a proportionate interpolation of the data from the surrounding integer indexes.<br>
+      Custom interpolation "slide" functions can be specified. Comes with numeric and hex-color slide options built in.<br>
+      let color = new AnalogArray(["#ff00ff", "888888"], AnalogArray.slideColor)<br>
+      color[0.5] // "#c444c4"
+    </p>
+    <NPMLink href="https://www.npmjs.com/package/analog-array" title="See analog-array on NPM" />
+    <GitHubLink href="https://github.com/propjockey/analog-array" title="Leave a star for analog-array on GitHub!" />
+  </div>
+
+  <div>
+    <span class="item-logo" aria-hidden="true" data-augmented-ui="all-hexangle-right border"></span>
+    <p>
+      <dfn>eased-gradient</dfn>
+      generate css gradients with an easing function applied to the spectrum
+    </p>
+    <NPMLink href="https://www.npmjs.com/package/eased-gradient" title="See eased-gradient on NPM" />
+    <GitHubLink href="https://github.com/propjockey/eased-gradient" title="Leave a star for eased-gradient on GitHub!" />
+  </div>
+
+  <div>
+    <span class="item-logo" aria-hidden="true" data-augmented-ui="all-hexangle-right border"></span>
+    <p>
+      <dfn>css-var-listener</dfn>
+      given a --css-var to listen to, css-var-listener scrapes your CSS and runs a callback whenever the var's value changes per each element matching the CSS Rules that set its value.
+    </p>
+    <NPMLink href="https://www.npmjs.com/package/css-var-listener" title="See css-var-listener on NPM" />
+    <GitHubLink href="https://github.com/propjockey/css-var-listener" title="Leave a star for css-var-listener on GitHub!" />
+  </div>
+</article>

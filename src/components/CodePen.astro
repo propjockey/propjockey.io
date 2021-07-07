@@ -1,0 +1,188 @@
+---
+import "augmented-ui/augmented-ui.min.css"
+import "css-media-vars/css-media-vars.css"
+import Fibonacci from "./FibonacciAbsolute.astro"
+---
+
+<style>
+  section {
+    padding: 0.25rem;
+    --fibenabled: var(--media-gte-md);
+    --lgsize: var(--media-gte-lg) 2rem;
+    --mdsize: var(--media-lte-md) 1.5rem;
+    --fibunitsize: var(--lgsize, var(--mdsize, 1rem));
+  }
+  section > a {
+    display: grid;
+    --gtcsm: var(--media-lte-sm) 1fr;
+    grid-template-columns: var(--gtcsm, 13fr 21fr);
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+  h3 {
+    max-width: 25rem;
+    color: hsl(var(--theme_0));
+    font-size: 1.75rem;
+    text-align: center;
+    filter: var(--flags-glow) drop-shadow(0 0 1rem hsl(var(--theme_0) / 0.33));
+  }
+  h3 + p {
+    color: hsl(var(--theme_2));
+    font-size: 1.5rem;
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_2) / 0.33);
+  }
+  section :global(ul) {
+    background: linear-gradient(
+      to bottom right,
+      hsl(var(--theme_2) / 0.33) -75%,
+      hsl(var(--theme_1) / 0.33),
+      hsl(var(--theme_2) / 0.33) 175%
+    );
+    outline: var(--fibenabled) 0.25rem solid hsl(var(--theme_2) / 0.33);
+  }
+  li {
+    --aug-border: initial;
+    --aug-border-all: 0.25rem;
+    --aug-border-bg: var(--fibenabled) linear-gradient(
+      to bottom right,
+      hsl(var(--theme_1)),
+      hsl(var(--theme_2)),
+      hsl(var(--theme_1))
+    ) fixed;
+    transition: all calc(var(--fib-spot) * 0.25s) linear;
+    padding: var(--aug-border-all);
+    --fib-font-size-basis: 1.25rem;
+  }
+  li > a {
+    position: var(--fibenabled) absolute;
+    bottom: 10%;
+    left: 0px;
+    right: 0px;
+    padding: var(--fibenabled) 1.5rem;
+    background: hsl(var(--theme_3) / 0.9);
+    box-shadow: 0 -3rem 6rem 1rem hsl(var(--theme_3) / 0.25);
+    border-top: 0.125rem solid hsl(var(--theme_2) / 0.33);
+    border-bottom: 0.125rem solid hsl(var(--theme_2) / 0.33);
+  }
+  .fib-title {
+    display: block;
+    color: hsl(var(--theme_0));
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.6);
+    line-height: 2;
+  }
+  .fib-desc {
+    color: hsl(var(--theme_2));
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_2) / 0.6);
+  }
+  section :global(button) {
+    height: 3rem;
+    width: 3rem;
+    background: hsl(var(--theme_1));
+    font-size: 1.75rem;
+    color: hsl(var(--theme_0));
+    text-shadow: var(--flags-glow) 0 0 1rem hsl(var(--theme_0) / 0.6);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    filter: var(--flags-glow) drop-shadow(0 0 1rem hsl(var(--theme_1) / 0.5));
+  }
+  section :global(.fib-disabled) {
+    opacity: 0.25;
+    pointer-events: none;
+  }
+</style>
+
+<section class="codepen">
+  <a href="https://codepen.io/propjockey">
+    <h3 aria-label="CodePen">
+      <svg aria-hidden="true" viewBox="0 0 138 26" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 8a7 7 0 100 10m7-8.7L33 2l11 7.3v7.4L33 24l-11-7.3zm0 0l11 7.4 11-7.4m0 7.4L33 9.3l-11 7.4M33 2v7.3m0 7.4V24M52 6h5a7 7 0 010 14h-5zm28 0h-9v14h9m-9-7h6m11 1h6a4 4 0 000-8h-6v14m26-14h-9v14h9m-9-7h6m11 7V6l11 14V6"></path></svg>
+    </h3>
+    <p>
+      I often experiement with ideas on CodePen first!<br>
+      If you want to follow what I'm <em>thinking</em>, follow me on CodePen. 💜
+    </p>
+  </a>
+  <Fibonacci enabledSpaceToggle="var(--fibenabled)" unitSize="var(--fibunitsize)">
+    <li data-augmented-ui style="--fib-bg: url(/assets/codepens/portal.png);">
+      <a href="https://codepen.io/propjockey/pen/vYxraBz?editors=1100">
+        <h4 class="fib-title">A simple animated CSS portal</h4>
+        <p class="fib-desc">
+          Built from a single static PNG, features: masking, transformations, keyframe animations, and user-specified color customization.
+        </p>
+      </a>
+    </li>
+    <li data-augmented-ui style="--fib-bg: url(/assets/codepens/inset-radius.gif);">
+      <a href="https://codepen.io/propjockey/pen/mdWvJPY?editors=1100">
+        <h4 class="fib-title">border-radius: inset 7vh;</h4>
+        <p class="fib-desc">
+          An augmented-ui demo, transitioning between scoop and round augs to simulate border-radius if it had an inset option.
+        </p>
+      </a>
+    </li>
+    <li data-augmented-ui style="--fib-bg: url(/assets/codepens/tooltip.gif);">
+      <a href="https://codepen.io/propjockey/pen/ExWMQRo?editors=1100">
+        <h4 class="fib-title">Fancy curvy tooltip</h4>
+        <p class="fib-desc">
+          A demo showing how you might use augmented-ui to create a simple any-size-tooltip with a pinched inset curve at the tip.
+        </p>
+      </a>
+    </li>
+    <li data-augmented-ui style="--fib-bg: url(/assets/codepens/trig.png);">
+      <a href="https://codepen.io/propjockey/pen/zYZXdOb?editors=1100">
+        <h4 class="fib-title">Trig calculations in CSS</h4>
+        <p class="fib-desc">
+          A demo of an idea to do a scaled progressive summation across a curve-distributed array of partial trig cache values to estimate the value of trig functions in CSS.
+        </p>
+      </a>
+    </li>
+    <li data-augmented-ui style="--fib-bg: url(/assets/codepens/int.png);">
+      <a href="https://codepen.io/propjockey/pen/MWpNgVM?editors=1100">
+        <h4 class="fib-title">Cast to INT in CSS without Houdini</h4>
+        <p class="fib-desc">
+          A demo of an impractical (but working) method to round floats to int in CSS. The compiled calc() resembles the Billion Laughs Attack.
+        </p>
+      </a>
+    </li>
+    <li data-augmented-ui style="--fib-bg: url(/assets/codepens/conditionals.png);">
+      <a href="https://codepen.io/propjockey/pen/YzZMNaz?editors=1100">
+        <h4 class="fib-title">CSS &lt;, &lt;=, =, &gt;=, &gt;, != operators demo</h4>
+        <p class="fib-desc">
+          Simple CSS calc()s that show you how to compare two numbers. These conditionals are fundamental to many of my other CSS demos and tricks.
+        </p>
+      </a>
+    </li>
+    <li data-augmented-ui style="--fib-bg: url(/assets/codepens/retrowave.png);">
+      <a href="https://codepen.io/propjockey/pen/VwKQENg?editors=1100">
+        <h4 class="fib-title">To the future!</h4>
+        <p class="fib-desc">
+          A bit of animated CSS art with a couple png mountains and a retrowave vibe 💜
+        </p>
+      </a>
+    </li>
+    <li data-augmented-ui style="--fib-bg: url(/assets/codepens/almaz.gif);">
+      <a href="https://codepen.io/propjockey/pen/bGwdZmN?editors=1100">
+        <h4 class="fib-title">Animation from Daniel Deluxe's Almaz</h4>
+        <p class="fib-desc">
+          A augmented-ui powered recreation of a corporate logo animation from a 2018 music video, Almaz by Daniel Deluxe.
+        </p>
+      </a>
+    </li>
+    <li data-augmented-ui style="--fib-bg: url(/assets/codepens/2advanced.png);">
+      <a href="https://codepen.io/propjockey/pen/QWEYqJP?editors=1100">
+        <h4 class="fib-title">2advanced // augmented-ui</h4>
+        <p class="fib-desc">
+          Throwback to the Sci-Fi shapes of the flash-based "2advanced" UI easily recreated in today's world with augmented-ui
+        </p>
+      </a>
+    </li>
+    <li data-augmented-ui style="--fib-bg: url(/assets/codepens/bladerunner.png);">
+      <a href="https://codepen.io/propjockey/pen/YzWPEKN?editors=1100">
+        <h4 class="fib-title">The Famous BLADE RUNNER Tile</h4>
+        <p class="fib-desc">
+          Demonstration of masks in CSS to turn two static PNG images into a convincing 3D object. Fun to interact with, take a look!
+        </p>
+      </a>
+    </li>
+  </Fibonacci>
+</section>
