@@ -1,4 +1,4 @@
-<html lang="en"><head><link rel="stylesheet" href="/_astro/common-Z17fBAG.css" type="text/css"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Packages on NPM from PropJockey.io - the value of properties, orchestrated</title><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="manifest" href="/site.webmanifest"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7300e6"><meta name="msapplication-TileColor" content="#7300e6"><meta name="theme-color" content="#7300e6"><script async="" src99="https://www.googletagmanager.com/gtag/js?id=UA-146833088-2"></script><script>
+<html lang="en"><head><link rel="stylesheet" href="/_astro/common-1EALCE.css" type="text/css"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Packages on NPM from PropJockey.io - the value of properties, orchestrated</title><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="manifest" href="/site.webmanifest"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7300e6"><meta name="msapplication-TileColor" content="#7300e6"><meta name="theme-color" content="#7300e6"><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-146833088-2"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -91,7 +91,7 @@
         "--flags-monochromatic": "initial",
         "--mono-hue": "275"
       })
-      document.cookie = "design_settings=false"
+      document.cookie = "design_settings=false; expires=Tue, 19 Jan 2038 03:14:07 UTC"
       applyDesignCookieInfo()
     }
     const designSettingsStyles = () => JSON.stringify(currentDesignSettings).replace(/["{}]/g, "").replace(/,/g, ";")
@@ -123,7 +123,7 @@
       const value = el.checked ? " " : "initial"
       setDesignValue(varname, value)
       document.documentElement.setAttribute("style", designSettingsStyles())
-      document.cookie = `design_settings=${designSettingsStyles().replace(/;/g, ",")}`
+      document.cookie = `design_settings=${designSettingsStyles().replace(/;/g, ",")}; expires=Tue, 19 Jan 2038 03:14:07 UTC`
     }
     const designSetting = el => {
       const varname = `--${el.name}`
@@ -131,7 +131,7 @@
       el.value = value
       setDesignValue(varname, value)
       document.documentElement.setAttribute("style", designSettingsStyles())
-      document.cookie = `design_settings=${designSettingsStyles().replace(/;/g, ",")}`
+      document.cookie = `design_settings=${designSettingsStyles().replace(/;/g, ",")}; expires=Tue, 19 Jan 2038 03:14:07 UTC`
     }
   </script></section><main class="astrolayout"><section class="showcase astro-bmxdOc4q"><h2 class="astro-bmxdOc4q">FOILED (W.I.P.) - an upcoming release</h2><a href="http://jane.propjockey.io/" title="follow Jane on twitter for updates on FOILED!" class="project-logo astro-bmxdOc4q"><h3 class="astro-bmxdOc4q">FOILED</h3></a><p class="astro-bmxdOc4q">FOILED is a CSS utility that provides classes and --properties for the creation of animatable, fake-3D Trading Cards</p><div class="previews astro-bmxdOc4q"><div class="glados astro-bmxdOc4q" aria-label="video loop of an example FOILED card made by a fan of the Portal video game series"><video autoplay="" muted="" loop="" class="astro-bmxdOc4q"><source src="/assets/glados.mp4" type="video/mp4" class="astro-bmxdOc4q"></video></div><div class="dxl astro-bmxdOc4q" aria-label="video loop of an example FOILED card made by a fan of the Deus Ex video game series"><video autoplay="" muted="" loop="" class="astro-bmxdOc4q"><source src="/assets/deusex.mp4" type="video/mp4" class="astro-bmxdOc4q"></video></div><div class="dxr astro-bmxdOc4q"><img src="/assets/deusex.png" alt="Back side of an example FOILED card made by a fan of the Deus Ex video game series" class="astro-bmxdOc4q"></div></div></section><section class="astro-lsIH6CRN"><h2 class="astro-lsIH6CRN">$ npm install</h2><article class="astro-lsIH6CRN"><h3 class="astro-lsIH6CRN">augmented-ui</h3><div class="project-logo astro-lsIH6CRN"><a href="http://augmented-ui.com/" title="Take a closer look at augmented-ui" class="aug-logo astro-lsIH6CRN" data-augmented-ui=""></a></div><div class="preview astro-lsIH6CRN"><p data-augmented-ui="both tl-clip-inset b-rect-xy br-clip bl-round tr-2-scoop-y" class="preview-augmented-ui astro-lsIH6CRN">
         A deep expansion on what's possible in CSS. High Tech Sci-Fi &amp; Cyberpunk User Interface design made easy. Get augmented and reshape the web.
