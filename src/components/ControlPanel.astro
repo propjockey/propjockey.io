@@ -172,7 +172,7 @@ import "css-media-vars/css-media-vars.css"
         "--flags-monochromatic": "initial",
         "--mono-hue": "275"
       })
-      document.cookie = "design_settings=false; expires=Tue, 19 Jan 2038 03:14:07 UTC"
+      document.cookie = "design_settings=false; path=/; expires=Tue, 19 Jan 2038 03:14:07 UTC"
       applyDesignCookieInfo()
     }
     const designSettingsStyles = () => JSON.stringify(currentDesignSettings).replace(/["{}]/g, "").replace(/,/g, ";")
@@ -204,7 +204,7 @@ import "css-media-vars/css-media-vars.css"
       const value = el.checked ? " " : "initial"
       setDesignValue(varname, value)
       document.documentElement.setAttribute("style", designSettingsStyles())
-      document.cookie = `design_settings=${designSettingsStyles().replace(/;/g, ",")}; expires=Tue, 19 Jan 2038 03:14:07 UTC`
+      document.cookie = `design_settings=${designSettingsStyles().replace(/;/g, ",")}; path=/; expires=Tue, 19 Jan 2038 03:14:07 UTC`
     }
     const designSetting = el => {
       const varname = `--${el.name}`
@@ -212,7 +212,7 @@ import "css-media-vars/css-media-vars.css"
       el.value = value
       setDesignValue(varname, value)
       document.documentElement.setAttribute("style", designSettingsStyles())
-      document.cookie = `design_settings=${designSettingsStyles().replace(/;/g, ",")}; expires=Tue, 19 Jan 2038 03:14:07 UTC`
+      document.cookie = `design_settings=${designSettingsStyles().replace(/;/g, ",")}; path=/; expires=Tue, 19 Jan 2038 03:14:07 UTC`
     }
   </script>
 </section>
