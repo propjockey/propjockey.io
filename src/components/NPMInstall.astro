@@ -114,6 +114,18 @@ import OtherPackages from "./OtherPackages.astro"
     grid-area: var(--gasm, 2 / 1 / 4 / 4);
     filter: var(--flags-glow) drop-shadow(0 0 0.5rem hsl(var(--theme_2) / 0.25));
   }
+  .breakpoint-system-logo {
+    background: url(/assets/breakpoint-system.png) center center / auto 75% no-repeat, hsl(var(--theme_0) / 0.125);
+  }
+  .preview-breakpoint-system {
+    background: url(/assets/breakpoint-system-preview.png) center 5% / 120% auto no-repeat;
+  }
+  .doubledash-logo {
+    background: url(/assets/doubledash.png) center center / auto 75% no-repeat, hsl(var(--theme_0) / 0.125);
+  }
+  .preview-doubledash {
+    background: url(/assets/doubledash-preview.png) center 5% / 120% auto no-repeat;
+  }
   .preview-augmented-ui {
     --bgpos-sm: var(--media-lte-md) 50%;
     background: url(/assets/augmented-ui-preview.png) var(--bgpos-sm, right) center / auto 100% no-repeat;
@@ -139,6 +151,23 @@ import OtherPackages from "./OtherPackages.astro"
   <h2>$ npm install</h2>
 
   <article>
+    <h3>@propjockey/breakpoint-system</h3>
+    <div class="project-logo">
+      <a href="https://propjockey.breakpoint-system.com/" title="Take a closer look at @propjockey/breakpoint-system" class="breakpoint-system-logo" data-augmented-ui></a>
+    </div>
+    <div class="preview">
+      <p data-augmented-ui="both tl-clip-inset b-rect-xy br-clip bl-round tr-2-scoop-y" class="preview-breakpoint-system">
+        Highly accessible, responsive CSS designed in pixels and implemented 1:1 with the new Breakpoint Unit for a flawless fluid experience. Custom aliases, breakpoints, and queries. 100% vanilla CSS. Deliver your designs.
+      </p>
+    </div>
+    <div class="project-links">
+      <HomeLink href="https://propjockey.breakpoint-system.com/" title="breakpoint-system's home page" />
+      <NPMLink href="https://www.npmjs.com/package/@propjockey/breakpoint-system" title="@propjockey/breakpoint-system on NPM" />
+      <GitHubLink href="https://github.com/propjockey/breakpoint-system" title="Leave a star for @propjockey/breakpoint-system on GitHub!" />
+    </div>
+  </article>
+
+  <article>
     <h3>augmented-ui</h3>
     <div class="project-logo">
       <a href="http://augmented-ui.com/" title="Take a closer look at augmented-ui" class="aug-logo" data-augmented-ui></a>
@@ -152,6 +181,23 @@ import OtherPackages from "./OtherPackages.astro"
       <HomeLink href="http://augmented-ui.com/" title="augmented-ui's home page" />
       <NPMLink href="https://www.npmjs.com/package/augmented-ui" title="augmented-ui on NPM" />
       <GitHubLink href="https://github.com/propjockey/augmented-ui" title="Leave a star for augmented-ui on GitHub!" />
+    </div>
+  </article>
+
+  <article>
+    <h3>@propjockey/doubledash.css</h3>
+    <div class="project-logo">
+      <a href="https://propjockey.github.io/doubledash.css/" title="Take a closer look at @propjockey/doubledash.css" class="doubledash-logo" data-augmented-ui></a>
+    </div>
+    <div class="preview">
+      <p data-augmented-ui="both tl-clip-inset b-rect-xy br-clip bl-round tr-2-scoop-y" class="preview-doubledash">
+        A collection of 100% CSS custom utility <span style="white-space: nowrap;">--functions()</span>, like lodash for CSS! Loops, binary operations, data conversions, and much much more.
+      </p>
+    </div>
+    <div class="project-links">
+      <HomeLink href="https://propjockey.github.io/doubledash.css/" title="@propjockey/doubledash.css's home page" />
+      <NPMLink href="https://www.npmjs.com/package/@propjockey/doubledash.css" title="@propjockey/doubledash.css on NPM" />
+      <GitHubLink href="https://github.com/propjockey/doubledash.css" title="Leave a star for @propjockey/doubledash.css on GitHub!" />
     </div>
   </article>
 

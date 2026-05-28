@@ -1,9 +1,8 @@
 ---
 import "augmented-ui/augmented-ui.min.css"
 import "css-media-vars/css-media-vars.css"
+import "@propjockey/breakpoint-system/breakpoint-system.css"
 import ControlPanel from "../components/ControlPanel.astro"
-import WIPShowcase from "../components/WIPShowcase.astro"
-import NPMInstall from "../components/NPMInstall.astro"
 
 const { content } = Astro.props
 ---
@@ -14,12 +13,12 @@ const { content } = Astro.props
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{content.title}</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="PropJockey.io" />
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7300e6">
-    <meta name="msapplication-TileColor" content="#7300e6">
     <meta name="theme-color" content="#7300e6">
     <meta property="og:image" content="http://propjockey.io/socialmedia.png">
     <meta property="og:image:type" content="image/png">
@@ -32,7 +31,7 @@ const { content } = Astro.props
     <link rel="stylesheet" href="/global.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146833088-2"></script>
-    <script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -109,9 +108,9 @@ const { content } = Astro.props
       }
     </style>
   </head>
-  <body>
+  <body class="bp-stage">
     <header>
-      <img class="logo" src="/assets/propjockey.png" alt="PropJockey logo">
+      <img class="logo" src="/assets/propjockey.svg" alt="PropJockey logo">
       <h1>
         <strong>PropJockey.io</strong>
         <span>the value of properties, orchestrated</span>

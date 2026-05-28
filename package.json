@@ -1,15 +1,19 @@
 {
-  "name": "@example/portfolio",
-  "version": "0.0.1",
+  "name": "propjockey.io",
+  "version": "2.0.0",
   "private": true,
+  "author": "Jane Ori",
+  "type": "commonjs",
+  "main": "index.js",
   "scripts": {
-    "start": "astro dev",
+    "dev": "astro dev",
     "build": "astro build"
   },
   "devDependencies": {
-    "astro": "^0.16.1"
+    "astro": "^6.4.2"
   },
   "dependencies": {
+    "@propjockey/breakpoint-system": "^1.1.1",
     "augmented-ui": "^2.0.0",
     "css-media-vars": "^1.1.0"
   }

@@ -155,7 +155,7 @@ import "css-media-vars/css-media-vars.css"
     </fieldset>
     <button onclick="resetAllDesignSettings()">Reset All Design Settings</button>
   </div>
-  <script>
+  <script is:inline>
     document.documentElement.classList.add("js-enabled")
     const currentDesignSettings = {
       "--flags-glow": " ",
